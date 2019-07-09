@@ -4,19 +4,20 @@
 //
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-const fibonacci = () => {
-  let oldNum = 0
+const fibonacci = () => {  //start by creating function
+  let oldNum = 0  //initialize the first two nummbers in the sequence. In this case it helps to start with 0 and 1 as adding 0 has no bearing on the final sum.
   let newNum = 1
   let sum = 0
-  for(let i=0; ;i++) {
-    const nextNum = oldNum + newNum
-    if(nextNum > 4000000) {
+
+  for(let i=0; ;i++) {  //leave out exit conditional to create infinite loop
+    const nextNum = oldNum + newNum //find next number by adding previous 2 numbers
+    if(nextNum > 4000000) {  //add exit condition so value doesn't exceed amount stated
       break
     }
-    if(nextNum % 2 === 0){
+    if(nextNum % 2 === 0){  //only run previous statements if fibonacci values are in fact even
       sum += nextNum
     }
-    oldNum = newNum
+    oldNum = newNum //before next iteration, set the current value as the old value and the next number in the sequence as the current value. 
     newNum = nextNum
   }
   console.log(sum);
